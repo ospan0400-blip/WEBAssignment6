@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 4</title>
+    <link rel="stylesheet" href="part4.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+
+      $(function(){
+        $("#basicAnimation").click(function () {
+        $("#basicBox").stop(true, true).css({ width: 50, height: 50, left: 0, top: 0 })
+          .animate({ width: 100, height: 100, left: 180, top: 40 }, 1000);
+      });
+
+      $("#sequenceAnimation").click(function () {
+        $("#sequenceBox").stop(true, true).css({ width: 50, height: 50, left: 0, top: 0 })
+          .animate({ left: 180 }, 600)
+          .animate({ top: 100 }, 600)
+          .animate({ width: 25, height: 25 }, 600)
+          .animate({ left: 0, top: 0, width: 50, height: 50 }, 600);
+      });
+
+      $("#combinedAnimation").click(function () {
+        $("#combinedBox").stop(true, true).css({ width: 50, height: 50, left: 0, top: 0, opacity: 1 })
+          .animate({ left: 180, top: 60, width: 100, height: 100, opacity: 0.35 }, 1200);
+      });
+    });
+  </script>
+</head>
+<body>
+  <div>
+    <h2>Basic Animation</h2>
+    <button id="basicAnimation">Animate size and position</button>
+    <div class="stage"><div id="basicBox" class="box"></div></div>
+  </div>
+
+  <div>
+    <h2>Sequential Animations</h2>
+    <button id="sequenceAnimation">Run animation sequence</button>
+    <div class="stage"><div id="sequenceBox" class="box"></div></div>
+  </div>
+
+  <div>
+    <h2>Combined Animation</h2>
+    <button id="combinedAnimation">Run combined animation</button>
+    <div class="stage"><div id="combinedBox" class="box"></div></div>
+  </div>
+</body>
+</html>

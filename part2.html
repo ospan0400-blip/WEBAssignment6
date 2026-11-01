@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            //Task 2
+            $("#hide").click(function(){
+                $("#p1").hide()
+            })
+
+            $("#show").click(function(){
+                $("#p1").show()
+            })
+
+            $("#toggle").click(function(){
+                $("#p2").toggle()
+            })
+
+            //Task 3
+
+            $("#fadein").click(function(){
+                $("#image").fadeIn()
+                $("#fadeout").fadeIn()
+            })
+
+            $("#fadeout").click(function(){
+                $("#image").fadeOut()
+                $("#fadeout").fadeOut()
+            })
+
+            $("#fadetoggle").click(function(){
+                $("#image").fadeToggle()
+            })
+
+            //Task 4
+            
+            $("#slidedown").click(function(){
+                $("#panel").slideDown()
+            })
+
+            $("#slideup").click(function(){
+                $("#panel").slideUp()
+            })
+
+            $("#slidetoggle").click(function(){
+                $("#panel").slideToggle()
+            })
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <p id="p1">This text will disappear after you click the 'Hide' button</p>
+        <p>It'll reappear again once you click the 'Show' button</p>
+        <button id="hide">Hide</button>
+        <button id="show"> Show</button> <br>
+
+        <p id="p2">This text is either hidden or shown once you click the 'Toggle' button</p> 
+        <button id="toggle">Toggle</button> 
+    </div>
+    <div>
+        <img id="image" src="treeforassignemnt.jpg" alt="tree" style="width: 250px; height: 250px; display: none;"> <br>
+        <button id="fadein">Press this button to see something</button> <br>
+        <button id="fadeout" hidden>Press this if you dont want to see that</button> <br>
+        <button id="fadetoggle">This button does both</button>
+    </div><br>
+    <div>
+        <div id="slidedown" style="width: 250px; text-align: center; border: 1px solid gray; background-color: beige;">Click this panel to see more</div>
+        <div id="panel" style="width: 250px; height: 100px; text-align: center;  background-color: beige; border: 1px dotted gray;" hidden><span id="slideup">Hello, press this to see less</span></div> <br>
+        <button id="slidetoggle">This button can do both</button>
+    </div>
+</body>
+</html>

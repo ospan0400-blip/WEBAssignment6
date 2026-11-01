@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Part 5</title>
+  <link rel="stylesheet" href="part5.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(function(){
+      let moving = false;
+
+      function moveBall() {
+        if (!moving) return;
+
+        const courtWidth = $("#court").width();
+        const ballWidth = $("#ball").width();
+        const maxLeft = courtWidth - ballWidth;
+
+        $("#ball").animate({ left: maxLeft }, 1400, "swing", function(){
+          if (!moving) return;
+          $("#ball").animate({ left: 0 }, 1400, "swing", function(){
+            moveBall();
+          });
+        });
+      }
+
+      $("#start").click(function(){
+        if (!moving) {
+          moving = true;
+          moveBall();
+        }
+      });
+
+      $("#stop").click(function(){
+        moving = false;
+        $("#ball").stop(true, false);
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>Bouncing Ball</h1>
+  <p>Click 'Start' to make the ball move across the area and bounce back, click 'Stop' to pause it</p>
+  <button id="start">Start</button>
+  <button id="stop">Stop</button>
+  <div id="court"><div id="ball"></div></div>
+</body>
+</html>
